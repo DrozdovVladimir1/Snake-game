@@ -84,6 +84,7 @@ document.addEventListener('keydown', (event) => {
       Dir: 'ArrowRight',
     }
     );
+    if (snake.length === 100) {winOutcome()}
     snake[0].Dir = currentDir;
     snake[0].x = snake[1].x;
     snake[0].y = snake[1].y;
@@ -117,6 +118,10 @@ document.addEventListener('keydown', (event) => {
   function loseOutcome() {
     clearInterval(game);
     alert('you lose');
+  }
+  function winOutcome() {
+    clearInterval(game);
+    alert(`You won! Congratulations! Your final score is ${score}`);
   }
   function RenderTheBoard() { /*element.classList.add("my-class");
                                 element.classList.remove("my-class");*/
