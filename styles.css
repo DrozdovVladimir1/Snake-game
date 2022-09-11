@@ -21,3 +21,10 @@ div {
     background-color: red;
     z-index: 2;
 }
+.scoreboard {
+    background-color: rgb(0, 231, 204);
+    width: 100px;
+    box-sizing: border-box;
+    justify-content: center;
+    padding-left: 10px;
+}

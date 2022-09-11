@@ -70,7 +70,7 @@ document.addEventListener('keydown', (event) => {
   
   function tick() {
     Move();
-
+    score+=20;
     RenderTheBoard();
   }
   let hasEatenFruit = false;
@@ -105,8 +105,9 @@ document.addEventListener('keydown', (event) => {
         if(snake[0].x > 9) {loseOutcome()}
         break;
     }
+    if (document.getElementById(`${snake[0].y}-${snake[0].x}`).classList.contains('zmeika')) {loseOutcome()}
     hasEatenFruit= ((snake[0].x === fruit.x)&&(snake[0].y === fruit.y));
-    if (hasEatenFruit) {GenerateFruit()}
+    if (hasEatenFruit) {score +=2000; GenerateFruit()}
   }
   function GenerateFruit() {
     fruit.x = Math.floor((Math.random()*9));
@@ -130,4 +131,5 @@ document.addEventListener('keydown', (event) => {
       document.getElementById(`${snake[i].y}-${snake[i].x}`).classList.add('zmeika');
     }
     document.getElementById(`${fruit.y}-${fruit.x}`).classList.add('fruit');
+    document.getElementById('score').textContent = `Score: ${score}`;
   }
